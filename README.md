@@ -24,4 +24,20 @@ Mail service Injection
 https://github.com/Email-Analysis-Toolkit/command-injection-tester
 
 
+Create a macro document which opens command prompt while opening document. And try to execute some basic commands like IPCONFIG, windows version etc.
+Sub AutoOpen()
+    ' This will run when the document is opened
+    Call RunCommands
+End Sub
+
+Sub RunCommands()
+    Dim shell As Object
+    Set shell = CreateObject("WScript.Shell")
+
+    ' Run command prompt commands
+    shell.Run "cmd.exe /c ipconfig"
+    shell.Run "cmd.exe /c ver"
+End Sub
+
+
 
